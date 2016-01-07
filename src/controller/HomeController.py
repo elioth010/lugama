@@ -16,5 +16,5 @@ class HomeController(BaseController):
         Constructor
         '''
     def index(self):
-        return View.make(View,"home.html")
+        return View.make("home.html")
         
