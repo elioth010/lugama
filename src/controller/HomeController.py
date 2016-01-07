@@ -4,6 +4,7 @@ Created on Jan 7, 2016
 @author: elioth010
 '''
 from controller.abstract.BaseController import BaseController
+from view.abstract import View
 
 class HomeController(BaseController):
     '''
@@ -14,4 +15,6 @@ class HomeController(BaseController):
         '''
         Constructor
         '''
+    def index(self):
+        return View.make(View,"home.html")
         

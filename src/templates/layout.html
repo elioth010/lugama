@@ -1,57 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lugama</title>    
-    <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/></strong>
-    <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}"/></strong>
-    <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/></strong>
+<head>
+<title>Lugama</title>
+<link rel="stylesheet"
+	href="{{ url_for('static', filename='css/main.css') }}" />
+<link rel="stylesheet"
+	href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" />
+<link rel="stylesheet"
+	href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="IE=9" />
-    <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <meta http-equiv="X-UA-Compatible" content="IE=11" />
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta http-equiv="X-UA-Compatible" content="IE=11" />
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  </head>
-    <body>
-      <div id="menu-container" class="container">
-        <header>
-          <div class="container">
-            <h1 class="logo">Lugama</h1>
-          </div>
-        </header> 
-          <nav class="navbar navbar-inverse navbar-fixed-top">
-              <div class="container-fluid">
-                  <div class="navbar-header">
-                      <a class="navbar-brand" href="#">Lugama</a>
-                  </div>
-                  <div>
-                      {%block menu%}
-                          array('menus'=>MenuController::getMenus()))
-                      {% endblock%}
-                  </div>
-              </div>
-          </nav>  
-      </div><!-- end container-->
-      <!-- check for flash notification message -->
-      {% for message in get_flashed_messages() %}
-        <div class="tooltip_box1" id="flash_error">{{message}}</div>
-      {% endfor %}
-      {% if session.flash_notice is defined %}
-      <ul class="tick tick1">
-          <i class="icon4"> </i>
-          <li class="icon4_desc"><p>{{ Session::get('flash_notice') }}</p></li>
-      </ul>
-      {% endif %}
-      <div style="margin-top: 5%" class="container">
-          {% block content %}
-          {% endblock %}
-      </div>
+</head>
+<body>
+	<div id="menu-container" class="container">
+		<header>
+			<div class="container">
+				<h1 class="logo">Lugama</h1>
+			</div>
+		</header>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Lugama</a>
+				</div>
+				<div>
+					{%block menu%}
+					{% endblock%}
+				</div>
+			</div>
+		</nav>
+	</div>
+	<!-- end container-->
+	<!-- check for flash notification message -->	
+	{% with errors = get_flashed_messages(category_filter=["error"]) %} 
+	{% if errors %}
+		<div class="alert-message block-message error">
+			{% for msg in errors %}
+				<div class="tooltip_box1" id="flash_error">{{msg}}</div>
+			{% endfor %}
+		</div>
+	{% endif %} 
+	{% endwith %}
+	      
+	{% with info = get_flashed_messages(category_filter=["info"]) %} 
+	{% if info %}
+	<div class="alert-message block-message">
+		{%- for msg in info %}
+		<ul class="tick tick1">
+	         <i class="icon4"> </i>
+	         <li class="icon4_desc"><p>{{msg}}</p></li>
+	     	</ul> 
+		{% endfor -%}
+	</div>
+	{% endif %} 
+	{% endwith %}
+	<div style="margin-top: 5%" class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
 
-      <div class="copy">
-<!--     <p>© 2015 Template by <a href="http://elblogdeklank.net" target="_blank"> @klank4135</a></p>-->
-      </div>
-  </body>  
+	<div class="copy">
+		<!--     <p>© 2015 Template by <a href="http://elblogdeklank.net" target="_blank"> @klank4135</a></p>-->
+	</div>
+</body>
 </html>
