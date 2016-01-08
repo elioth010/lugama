@@ -9,4 +9,5 @@ def home():
     #return render_template('home.html')
  
 if __name__ == '__main__':
-    app.run(debug=True)  
+    app.secret_key = '>\xd3X*\x95\xcc\xc1\xdfb\x847\xeb\x7f^\x83\xe9\xdf\x940ga\x94\x0cb'
+    app.run(host="0.0.0.0", debug=True)

@@ -1,1 +1,1 @@
-from .Session import Session
+from view.abstract import Session

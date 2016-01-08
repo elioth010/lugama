@@ -19,6 +19,7 @@ class View:
             return render_template(template_name)
         else: 
             return render_template(template_name, args)
+        
     @staticmethod
     def redirect(url):
         return redirect(url_for(url))

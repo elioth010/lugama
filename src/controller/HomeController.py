@@ -5,6 +5,7 @@ Created on Jan 7, 2016
 '''
 from controller.abstract.BaseController import BaseController
 from view.abstract import View
+from view.abstract import Session
 
 class HomeController(BaseController):
     '''
@@ -16,5 +17,6 @@ class HomeController(BaseController):
         Constructor
         '''
     def index(self):
+        Session.flash("info", "First Flash Session")
         return View.make("home.html")
         

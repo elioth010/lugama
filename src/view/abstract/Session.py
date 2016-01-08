@@ -15,5 +15,5 @@ class Session:
         Empty Constructor
         '''
     @staticmethod
-    def flash(self, category, message):
+    def flash(category, message):
         flash(message, category)    
