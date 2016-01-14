@@ -16,7 +16,7 @@ class Route():
         '''
         
     @staticmethod
-    def call(self, function_name):
+    def call(function_name):
         module = __import__('controller.'+function_name.split("@")[0])
         class_ = getattr(module, function_name.split("@")[0])
         method_ = getattr(class_, function_name.split("@")[1])
@@ -26,7 +26,7 @@ class Route():
         return method_(class_())
         
     @staticmethod
-    def action(self, function_name, *args):
+    def action(function_name, *args):
         module = __import__('controller.'+function_name.split("@")[0])
         class_ = getattr(module, function_name.split("@")[0])
         method_ = getattr(class_, function_name.split("@")[1])

@@ -1,0 +1,57 @@
+{
+	"database": 
+	[
+		{
+			"default": "mysql"
+		},
+
+		{
+			"mysql": 
+			{
+				"engine": "mysql",
+				"host": "localhost",
+				"port": 3306,
+				"user": "applugamausr",
+				"password": "Kn9Ry02RPeVhQzZ",
+				"databaes": "LUGAMA"
+			},
+
+			"postgresql": 
+			{
+				"engine": "postgresql",
+				"host": "localhost",
+				"port": 5432,
+				"user": "applugamausr",
+				"password": "Kn9Ry02RPeVhQzZ",
+				"databaes": "LUGAMA"
+			},
+
+			"oracle": 
+			{
+				"engine": "oracle",
+				"host": "localhost",
+				"port": 1521,
+				"user": "applugamausr",
+				"password": "Kn9Ry02RPeVhQzZ",
+				"databaes": "LUGAMA",
+				"sidname": "sidname"
+			}
+		}
+	],
+
+	"smtp": 
+	{
+		"host": "lugama.org.mail",
+		"port": 587,
+		"from": 
+		{
+			"address": "admin@lugama.org",
+			"name": "Admi"
+		},
+
+		"ecryption": "tls",
+		"username": "user",
+		"password": "secret",
+		"sendmail": "/usr/sbin/sendmail -bs"
+	}
+}
